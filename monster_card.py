@@ -59,4 +59,22 @@ catalogue = {"Stoneling":
         "Cunning": 2,},
         }
 
-              
+def show_card(): #Shows the card and their values (stats/power)
+    print("\n---CARDS---")
+    for key, value in catalogue.items():
+        print(f"\n--{key}--")
+        for stat, power in value.items():
+            print(f"{stat}: {power}")
+
+
+while True: 
+    print("\n---MONSTER CARDS---")
+    print("-Please type in a number between 1-5 to navigate-")
+    number = int(input("Enter a number: "))
+
+    if number == 1: #When user inputs 1 it runs the function 'show_card'
+        show_card()
+
+    elif number == 5: #Quit/ends the code
+        print("Thank you for using MONSTER CARDS")
+        break
