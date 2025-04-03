@@ -67,13 +67,46 @@ def show_card(): #Shows the card and their values (stats/power)
             print(f"{stat}: {power}")
 
 
+def add_card(): #Able to add a new card
+    card_name = input("Enter name of new card: ")
+    card_name = card_name.capitalize()
+    catalogue[card_name] = {}
+    stats = ["Strength", "Speed", "Stealth", "Cunning"]
+
+    for stat in stats:
+        power = int(input(f"Enter power value for {stat}: "))
+        catalogue[card_name][stat] = power
+
+
+def search_card():
+    print("---CURRENT CARDS---")
+    for key, value in catalogue.items():
+        print(key)
+    card_name = input("Search for card: ")
+    if card_name in catalogue:
+        print(f"\n--{card_name}--")
+        for stat, power in catalogue[card_name].items():
+            print(f"{stat}: {power}")
+
+    else:
+        print("Card not found")
+
+    
+
 while True: 
     print("\n---MONSTER CARDS---")
     print("-Please type in a number between 1-5 to navigate-")
+    print("1 Show Card(s)" "\n2 Add Card" "\n3 Search Card" "\n4 Delete Card" "\n5 Quit")
     number = int(input("Enter a number: "))
 
     if number == 1: #When user inputs 1 it runs the function 'show_card'
         show_card()
+
+    elif number == 2:
+        add_card()
+
+    elif number ==3:
+        search_card()
 
     elif number == 5: #Quit/ends the code
         print("Thank you for using MONSTER CARDS")
